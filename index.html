@@ -15,19 +15,29 @@
     </div>
 
     <!-- 1. Шапка сайту з логотипом зліва та тактичним меню Media справа -->
-    <!-- 1. Шапка сайту -->
     <header>
+        <!-- Ліва частина шапки: Лого та Текст -->
         <div class="brand-container">
             <div class="logo-container">
-                <!-- 🌟 ДОДАЛИ КРАПКУ ТА СЛЕШ: Тепер GitHub точно знайде логотип -->
                 <img src="./images/logo.png" alt="Логотип Ржавий БПЛА" class="site-logo">
                 <h1>Rjaviy</h1>
             </div>
             <p class="site-subtitle">Рабів до дронів не пускають</p>
         </div>
-        <nav></nav>
+        
+        <!-- Права частина шапки: Випадаюче меню Media -->
+        <nav class="skylink-nav">
+            <div class="nav-links-group">
+                <div class="dropdown">
+                    <button class="dropbtn">Media ▾</button>
+                    <div class="dropdown-content">
+                        <a href="photos.html">📸 Фото</a>
+                        <a href="videos.html">🎥 Відео</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
-
 
     <!-- Головна адаптивна структура великих горизонтальних скляних блоків -->
     <div class="main-container-layout">
@@ -38,7 +48,7 @@
                 <div class="card-status">SYSTEM: <span class="blink-green">ONLINE</span></div>
                 <h2>Про мене</h2>
                 <p>Привіт! Я <strong>Віталій</strong>, мій позивний — <strong>«Ржавий»</strong>.</p>
-                <p>Мій інженерний шлях у безпілотній авіації розпочався з 2024 року, а саме з освоєння та збірки класичних 7-дюймових FPV-дронів. Сьогодні я працюю над модернізацією важких ударних бомбардувальників <strong>Vampire</strong>, інтегруючи їх із системами <strong>Starlink</strong> для забезпечення стабільного зв'язку та керування на великих відстанях.</p>
+                <p>Мій інженерний шлях у безпілотній авіації розпочався з 2024 року, а саме з освоєння та збірки класичних 7-дюймових FPV-дронів. Сьогодні я працюю над модернізацією важких ударних бомбардувальників <strong>Vampire</strong>, інтегруючи their із системами <strong>Starlink</strong> для забезпечення стабільного зв'язку та керування на великих відстанях.</p>
                 <p>У вільний час постійно тестую та практикую нові технології у сфері FPV. Моя мета на майбутнє — повністю освоїти літальні крила (<strong>Air Wing</strong>) та розібратися з професійною прошивкою <strong>ArduPilot</strong> для кастомних FPV-платформ.</p>
             </section>
         </div>
