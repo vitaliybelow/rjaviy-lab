@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоархів | Rjaviy Lab</title>
+    <!-- Підключаємо наш єдиний та зафіксований style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ТАКТИЧНИЙ ШІ-ФОН (Синхронізовано з усім сайтом) -->
+    <div class="site-bg-image-container">
+        <div class="site-bg-overlay"></div>
+    </div>
+
+    <!-- Шапка сайту з клікабельним логотипом зліва та назвою розділу справа -->
+    <header>
+        <!-- ЛІВА ЧАСТИНА: Клікабельний логотип (повернення на головну) -->
+        <a href="index.html" class="tech-card-link" style="display: block;">
+            <div class="brand-container">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="Логотип Ржавий БПЛА" class="site-logo">
+                    <h1>Rjaviy</h1>
+                </div>
+            </div>
+        </a>
+        
+        <!-- ПРАВА ЧАСТИНА: Назва поточної сторінки -->
+        <div class="page-title-right">
+            <h2>Історія</h2>
+        </div>
+    </header>
+
+    <!-- Головний контейнер для фотогалереї -->
+    <div class="main-container-layout">
+        
+        <div class="tech-card-wrapper full-width-card">
+            <section class="tech-card">
+                <div class="card-status">ARCHIVE: AUTOMATIC_GRID</div>
+                <h2>Моя історія</h2>
+                
+                <!-- 🌟 Сітка для фотографій (Залишаємо порожньою, скрипт сам створить тут блоки) -->
+                <div class="media-grid-layout" id="dynamic-photo-grid"></div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- АВТОМАТИЧНИЙ СКРИПТ ГЕНЕРАЦІЇ ГАЛЕРЕЇ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const grid = document.getElementById("dynamic-photo-grid");
+            const totalPhotos = 7; // 🔍 Якщо закинеш більше фотографій у папку, просто зміни цю цифру!
+            let gridElements = "";
+
+            // Циклом створюємо скляні рамки для кожної з 8 фотографій .jpeg
+            for (let i = 1; i <= totalPhotos; i++) {
+                gridElements += `
+                    <div class="gallery-photo-item">
+                        <img src="images/photo${i}.jpeg" alt="Збірка БПЛА ${i}">
+                    </div>
+                `;
+            }
+
+            // Вставляємо згенеровані блоки в сітку сторінки
+            grid.innerHTML = gridElements;
+        });
+    </script>
+
+</body>
+</html>

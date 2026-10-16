@@ -1,0 +1,538 @@
+/* ==========================================================================
+   КОНТЕНТ ДЛЯ ТАКТИЧНОГО ШІ-ФОНУ ТА МАСКИ
+   ========================================================================== */
+
+/* Контейнер тримає картинку жорстко зафіксованою на задньому плані */
+.site-bg-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* На самому задньому плані під усім сайтом */
+    background-image: url('images/vampire-bg.jpg'); 
+    background-size: cover; /* Розтягується без спотворення пропорцій */
+    background-position: center; /* Центрує головний об'єкт на екрані */
+    background-repeat: no-repeat;
+}
+
+/* Наша перевірена чорна маска — повністю прозора за твоїм вибором */
+.site-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 12, 0); 
+    z-index: -1; /* Між малюнком та текстом картки */
+}
+
+/* ==========================================================================
+   1. БАЗОВІ НАЛАШТУВАННЯ ТА ШАПКА
+   ========================================================================== */
+
+/* Залізно ховаємо горизонтальні лінії по всьому сайту */
+hr {
+    display: none !important;
+}
+
+body {
+    background-color: #0b0b0c; /* Запасний чорний фон */
+    color: #e4e4e7; /* Повністю світлий текст для карток */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    padding: 15px 25px; /* Компактні внутрішні відступи */
+    border-radius: 15px;
+    border: none; /* ПОВНІСТЮ ПРИБРАЛИ ЧЕРВОНУ ОБВОДКУ ШАПКИ */
+    margin-bottom: 50px; /* Відступ у 50px до карток */
+    
+    /* РОЗКИДАЄМО ЛОГОТИП ВЛІВО, А МЕНЮ В ПРАВИЙ КУТ */
+    display: flex;
+    justify-content: space-between;
+    
+    /* Рівняємо логотип та напис праворуч строго по одній центральній лінії */
+    align-items: center; 
+    
+    flex-wrap: wrap; /* Для адаптивності на телефонах */
+    gap: 20px;
+}
+
+/* Контейнер для всього брендингу зліва */
+.brand-container {
+    text-align: left; 
+}
+
+/* Вирівнювання логотипа та заголовка в один ряд */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    margin-bottom: 1px;
+}
+
+/* Твій оновлений компактний розмір логотипа */
+.site-logo {
+    height: 80px; 
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6)); /* Червоне свічення знака */
+}
+
+header h1 {
+    color: #fc0101;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 50px; /* Твій оновлений компактний розмір шрифту */
+    line-height: 1; 
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.3); 
+}
+
+.site-subtitle {
+    color: #fafafb;
+    margin: 9px 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Тактична назва моделі або сторінки у правому кутку шапки */
+.page-title-right h2 {
+    color: #ff0000;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 3.5rem; /* Твій пропорційний розмір для напису справа */
+    line-height: 1; 
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.3); /* Червоне контурне свічення модулів */
+}
+
+/* Корекція для телефонів: якщо екран маленький, зменшуємо заголовок */
+@media (max-width: 991px) {
+    header h1 {
+        font-size: 35px; 
+    }
+    .page-title-right h2 {
+        font-size: 2.2rem;
+        margin-top: 5px;
+    }
+}
+
+/* ==========================================================================
+   2. НАВІГАЦІЯ ТА ВИПАДАЮЧЕ МЕНЮ (ДРОПДАУН)
+   ========================================================================== */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a, .dropbtn {
+    color: #faf9f9; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 20px; 
+    font-family: inherit;
+    cursor: pointer;
+    text-shadow: 0 5px 9px rgba(0, 0, 0, 0.9), 0 0 2px rgb(25, 0, 255); 
+    transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    color: #ff0000; 
+    transform: scale(1.15);
+    text-shadow: 0 0 10px #ff0000, 0 0 20px rgba(255, 0, 0, 0.6); 
+}
+
+.active {
+    color: #ff0000 !important;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6) !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #141416;
+    min-width: 120px;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(255, 0, 0, 0.15);
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    text-align: center !important;
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 0);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* ФИКС: Убрали overflow: hidden, чтобы вылетающие сверху ссылки не обрезались в полете */
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-content a {
+    color: #e4e4e7;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    display: block !important;
+    text-align: center !important;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-shadow: none !important;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease, background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #ff0000;
+    color: white !important;
+    transform: none !important;
+}
+
+.dropdown:hover .dropdown-content a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown:hover .dropdown-content a:nth-child(2) { transition-delay: 0s; }
+.dropdown:hover .dropdown-content a:nth-child(1) { transition-delay: 0.15s; }
+
+/* ==========================================================================
+   3. СТРУКТУРА МАКЕТА ТА ЕФЕКТ МАТОВОГО СКЛА (GLASSMORPHISM)
+   ========================================================================== */
+
+/* Контейнер-розмітка для великих вертикальних блоків */
+.main-container-layout {
+    display: flex;
+    flex-direction: column; /* Блоки йдуть один під одним */
+    gap: 35px;
+    
+    /* 🌟 ИСПРАВЛЕНИЕ: Снимаем ограничение в 1000px и растягиваем сетку на максимум */
+    width: 100%;
+    max-width: 100% !important; 
+    margin: 30px 0;
+}
+
+/* Полностью нейтрализуем внешнюю обертку, чтобы она никак не влияла на размеры */
+.tech-card-wrapper,
+.tech-card-wrapper.full-width-card {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    background: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Полностью убираем старый лазерный луч */
+.tech-card-wrapper::before {
+    display: none !important;
+}
+
+/* 🌟 САМА КАРТКА (РАСТЯНУТА НА МАКСИМУМ) */
+section.tech-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* 🌟 ИСПРАВЛЕНИЕ: Карточка теперь занимает 100% всей доступной ширины экрана */
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    min-height: 200px; 
+    margin: 0 auto;
+    padding: 25px;
+    z-index: 2;
+    box-sizing: border-box;
+    
+    /* Ефект матового скла */
+    background-color: rgba(15, 15, 17, 0.45) !important; 
+    backdrop-filter: blur(20px) !important; 
+    -webkit-backdrop-filter: blur(20px) !important; 
+    
+    /* Тонка базова рамка */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; 
+    border-radius: 12px !important;
+    
+    /* Плавность анимации */
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ НА КАРТОЧКУ (Мягкий подъем, без красного неона) */
+section.tech-card:hover {
+    transform: translateY(-5px) !important; 
+    background-color: rgba(20, 20, 22, 0.65) !important; 
+    border-color: rgba(255, 255, 255, 0.25) !important; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important; 
+}
+
+/* 🌟 ОБЫЧНЫЕ БЛОКИ ВНУТРЕННИХ СТРАНИЦ (Тоже растягиваем на максимум) */
+section {
+    background-color: rgba(15, 15, 17, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 30px auto;
+    padding: 25px;
+    
+    /* 🌟 ИСПРАВЛЕНИЕ: Убираем max-width: 900px, делаем блок широким */
+    width: 100%;
+    max-width: 100% !important;
+    
+    border-radius: 12px;
+    border-left: 5px solid #ff0000; 
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+}
+
+/* Логіка статусів та тексту всередині карти */
+.card-status {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    letter-spacing: 1px;
+    font-family: monospace;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.blink-green {
+    color: #22c55e;
+    font-weight: bold;
+    animation: pulse-green 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-green {
+    0% { opacity: 0.4; text-shadow: none; }
+    50% { opacity: 1; color: #2ee56b; text-shadow: 0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.6); }
+    100% { opacity: 0.4; text-shadow: none; }
+}
+
+section.tech-card h2 {
+    color: #ff0000;
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+section.tech-card p {
+    color: #d4d4d8;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.2s, text-shadow 0.2s;
+    text-decoration: none;
+}
+
+section.tech-card:hover .card-link {
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff0000;
+}
+
+.tech-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================================
+4. НАЛАШТУВАННЯ БІГУЧОЇ СТРІЧКИ З ФОТОГРАФІЯМИ
+========================================================================== */
+.photo-marquee-container {
+overflow: hidden;
+width: 100%;
+padding: 10px 0;
+background-color: rgba(11, 11, 12, 0.4);
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.08);
+margin-top: 5px;
+}
+.photo-marquee-track {
+display: flex;
+width: max-content;
+gap: 15px;
+animation: scroll-infinite 30s linear infinite !important;
+}
+.photo-marquee-track:hover {
+animation-play-state: paused;
+}
+.photo-marquee-track img {
+height: 200px;
+width: 200px;
+border-radius: 8px;
+border: 1px solid #3a3a3c;
+object-fit: cover;
+transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.photo-marquee-track img:hover {
+border-color: #ff0000;
+transform: scale(1.05);
+cursor: pointer;
+}
+@keyframes scroll-infinite {
+0% { transform: translate3d(0, 0, 0); }
+100% { transform: translate3d(-50%, 0, 0); }
+}
+/* ==========================================================================
+5. СТИЛІ ДЛЯ СТАНДАРТНИХ СЕКЦІЙ ТА СПИСКІВ
+========================================================================== */
+strong {
+color: #ff0000;
+}
+section ul {
+padding-left: 20px;
+list-style-type: none;
+}
+section ul li {
+margin-bottom: 10px;
+position: relative;
+color: #e4e4e7;
+}
+section ul li::before {
+content: "▪";
+color: #ff0000;
+font-weight: bold;
+display: inline-block;
+width: 15px;
+margin-left: -15px;
+}
+/* ==========================================================================
+   6. СТИЛІ ДЛЯ СТОРІНОК МЕДІА-ЦЕНТРУ (ФОТО ТА ВІДЕО)
+   ========================================================================== */
+
+.media-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 25px;
+    margin-top: 25px;
+    justify-content: center; 
+}
+
+.gallery-photo-item {
+    width: 250px;  
+    height: 250px; 
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(11, 11, 12, 0.4);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.gallery-photo-item:hover {
+    border-color: #ff0000;
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* 🌟 НОВА СІТКА ДЛЯ ВЕРТИКАЛЬНИХ ВІДЕО INSTAGRAM (9:16) */
+.video-grid-layout {
+    display: grid;
+    /* Кожна колонка тепер жорстко зафіксована під вертикальний формат смартфона (300px) */
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 30px;
+    margin-top: 25px;
+    justify-content: center; /* Центруємо плеєри всередині великого скла */
+}
+
+/* Окремий вертикальний контейнер для відео */
+.instagram-video-item {
+    width: 300px;
+    background-color: rgba(11, 11, 12, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Маленька тактична плашка статусу над кожним відео */
+.video-status-bar {
+    font-size: 0.7rem;
+    color: #a1a1aa;
+    font-family: monospace;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Сам плеєр тримає строгі Instagram пропорції */
+.instagram-video-item video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 9 / 16; /* 🔍 Жорстко тримаємо вертикальний формат 9:16 */
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #000000;
+}
+
+/* Ховер ефект для відео */
+.instagram-video-item:hover {
+    border-color: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+7. АДАПТИВНІ СТИЛІ ДЛЯ ВЕЛИКИХ ЕКРАНІВ ТА МОБІЛЬНИХ
+========================================================================== */
+@media (min-width: 1024px) {
+.main-container-layout {
+max-width: 1400px;
+gap: 40px;
+}
+section.tech-card {
+padding: 40px;
+}
+section.tech-card h2 {
+font-size: 1.75rem;
+letter-spacing: 1.5px;
+}
+section.tech-card p {
+font-size: 1.15rem;
+margin-bottom: 35px;
+}
+}
+/* Мобільна адаптація шапки */
+@media (max-width: 768px) {
+header {
+flex-direction: column;
+text-align: center;
+align-items: center;
+}
+}

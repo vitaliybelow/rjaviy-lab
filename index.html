@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rjaviy | Головна</title>
+    <!-- Підключаємо наш єдиний та зафіксований style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ТАКТИЧНИЙ ШІ-ФОН ДЛЯ ГОЛОВНОЇ СТОРІНКИ -->
+    <div class="site-bg-image-container">
+        <div class="site-bg-overlay"></div>
+    </div>
+
+    <!-- 1. Шапка сайту з логотипом зліва та тактичним меню Media справа -->
+    <header>
+        <!-- Ліва частина шапки: Лого та Текст -->
+        <div class="brand-container">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Логотип Ржавий БПЛА" class="site-logo">
+                <h1>Rjaviy</h1>
+            </div>
+            <p class="site-subtitle">Рабів до дронів не пускають</p>
+        </div>
+        
+        <!-- Права частина шапки: Випадаюче меню Media -->
+        <nav class="skylink-nav">
+            <div class="nav-links-group">
+                <div class="dropdown">
+                    <button class="dropbtn">Media ▾</button>
+                    <div class="dropdown-content">
+                        <a href="photos.html">Фото</a>
+                        <a href="videos.html">Відео</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Головна адаптивна структура великих горизонтальних скляних блоків -->
+    <div class="main-container-layout">
+        
+        <!-- 1 БЛОК: ПРО МЕНЕ (Монолітна інформаційна панель) -->
+        <div class="tech-card-wrapper full-width-card">
+            <section class="tech-card">
+                <div class="card-status">SYSTEM: <span class="blink-green">ONLINE</span></div>
+                <h2>Про мене & Ремесло</h2>
+                <p>Привіт! Я <strong>Віталій</strong>, мій бойовий позивний — <strong>«Ржавий»</strong>.</p>
+                <p>Мій інженерний шлях у безпілотній авіації розпочався з 2024 року, а саме з освоєння та збірки класичних 7-дюймових FPV-дронів. Сьогодні я працюю над модернізацією важких ударних бомбардувальників <strong>Vampire</strong>, інтегруючи їх із системами <strong>Starlink</strong> для забезпечення стабільного зв'язку та керування на великих відстанях.</p>
+                <p>У вільний час постійно тестую та практикую нові технології у сфері FPV. Моя мета на майбутнє — повністю освоїти літальні крила (<strong>Air Wing</strong>) та розібратися з професійною прошивкою <strong>ArduPilot</strong> для кастомних FPV-платформ.</p>
+            </section>
+        </div>
+
+        <!-- 2 БЛОК: ФОТО-СТРІЧКА (БЕГУЩАЯ СТРОКА НА 8 ФОТО) -->
+        <div class="tech-card-wrapper full-width-card">
+            <section class="tech-card photo-stream-section">
+                <div class="card-status">MEDIA: STREAMING</div>
+                <h2>Моя історія</h2>
+                
+                <div class="photo-marquee-container">
+                    <!-- Автоматичний JS-трек підтягне сюди фотографії -->
+                    <div class="photo-marquee-track" id="dynamic-marquee-track"></div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- АВТОМАТИЧНИЙ JS-ДВИГУН БІГУЧОЇ СТРИЧКИ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const track = document.getElementById("dynamic-marquee-track");
+            const myPhotos = ["photo1.jpeg", "photo2.jpeg", "photo3.jpeg", "photo4.jpeg", "photo5.jpeg", "photo6.jpeg", "photo7.jpeg", "photo8.jpg"];
+            let photoElements = "";
+
+            myPhotos.forEach(function(fileName) {
+                photoElements += `<img src="images/${fileName}" alt="Збірка БПЛА">`;
+            });
+            track.innerHTML = photoElements + photoElements;
+        });
+    </script>
+
+</body>
+</html>
